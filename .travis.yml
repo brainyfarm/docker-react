@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t brainyfarm/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run brainyfarm/docker-react npm run test -- --coverage
